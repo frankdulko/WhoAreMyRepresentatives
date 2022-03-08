@@ -1,0 +1,56 @@
+:root {
+    --vint-blue: #74959A;
+    --vint-lightblue: #98B4AA;
+}
+
+.display-3{
+    font-family: jubilat,serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+#elections{
+    font-family: jubilat,serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+form{
+    font-family: halyard-text, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.btn{
+    width: 100%;
+    color: white;
+    background-color: var(--vint-blue);
+    font-family: halyard-display,sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    text-transform: uppercase;
+}
+
+.btn:hover{
+    color: white;
+    background-color: var(--vint-lightblue);
+    transition: 1s;
+}
+
+.list-group-item{
+    font-family: halyard-text, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    border: none;
+}
+
+
+
+a{
+    color: var(--vint-blue);
+}
+
+a:hover{
+    color: var(--vint-lightblue);
+    transition: 1s;
+}

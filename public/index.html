@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script src="script.js" ></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.typekit.net/dhi6myi.css">
+    <link href="style.css" rel="stylesheet">
+
+</head>
+<body onload="loadClient()">
+    <div id="header-search" class="containr-fluid px-5 d-none">
+        <form>
+        <div class="row">
+            <div class="col-md">
+                <div class="form-floating my-3"> <!-- Street 1 -->
+                    <input type="text" class="form-control" id="street1_id" name="street1" placeholder="Street Address">
+                    <label for="street1_id" class="control-label">Street Address 1</label>
+                </div>	
+            </div>
+            <div class="col-md">
+                <div class="form-floating my-3"> <!-- City-->
+                    <input type="text" class="form-control" id="city_id" name="city" placeholder="Smallville">
+                    <label for="city_id" class="control-label">City</label>
+                </div>	
+            </div>
+            <div class="col">
+                <div class="form-floating my-3"> <!-- State Button -->
+                    <select class="form-control" id="state_id" name="state">
+                        <option value="AL">Alabama</option>
+                        <option value="AK">Alaska</option>
+                        <option value="AZ">Arizona</option>
+                        <option value="AR">Arkansas</option>
+                        <option value="CA">California</option>
+                        <option value="CO">Colorado</option>
+                        <option value="CT">Connecticut</option>
+                        <option value="DE">Delaware</option>
+                        <option value="DC">District Of Columbia</option>
+                        <option value="FL">Florida</option>
+                        <option value="GA">Georgia</option>
+                        <option value="HI">Hawaii</option>
+                        <option value="ID">Idaho</option>
+                        <option value="IL">Illinois</option>
+                        <option value="IN">Indiana</option>
+                        <option value="IA">Iowa</option>
+                        <option value="KS">Kansas</option>
+                        <option value="KY">Kentucky</option>
+                        <option value="LA">Louisiana</option>
+                        <option value="ME">Maine</option>
+                        <option value="MD">Maryland</option>
+                        <option value="MA">Massachusetts</option>
+                        <option value="MI">Michigan</option>
+                        <option value="MN">Minnesota</option>
+                        <option value="MS">Mississippi</option>
+                        <option value="MO">Missouri</option>
+                        <option value="MT">Montana</option>
+                        <option value="NE">Nebraska</option>
+                        <option value="NV">Nevada</option>
+                        <option value="NH">New Hampshire</option>
+                        <option value="NJ">New Jersey</option>
+                        <option value="NM">New Mexico</option>
+                        <option value="NY">New York</option>
+                        <option value="NC">North Carolina</option>
+                        <option value="ND">North Dakota</option>
+                        <option value="OH">Ohio</option>
+                        <option value="OK">Oklahoma</option>
+                        <option value="OR">Oregon</option>
+                        <option value="PA">Pennsylvania</option>
+                        <option value="RI">Rhode Island</option>
+                        <option value="SC">South Carolina</option>
+                        <option value="SD">South Dakota</option>
+                        <option value="TN">Tennessee</option>
+                        <option value="TX">Texas</option>
+                        <option value="UT">Utah</option>
+                        <option value="VT">Vermont</option>
+                        <option value="VA">Virginia</option>
+                        <option value="WA">Washington</option>
+                        <option value="WV">West Virginia</option>
+                        <option value="WI">Wisconsin</option>
+                        <option value="WY">Wyoming</option>
+                    </select>					
+                    <label for="state_id" class="control-label">State</label>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-floating my-3"> <!-- Zip Code-->
+                    <input type="text" class="form-control" id="zip_id" name="zip" placeholder="#####">
+                    <label for="zip_id" class="control-label">Zip Code</label>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group my-3"> <!-- Submit Button -->
+                    <button type="button" class="btn" onclick="getInput(this.form)" >Search</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="display-3">
+        Representatives for
+    </div>
+    <div class="display-6 mb-5" id="address">
+
+    </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                <div id="elections" class="list-group display-6">
+                    Upcoming Elections
+                </div>
+            </div>
+            <div id="main-content" class="col">
+                <div id = "input" class="display-3">Who Are My Representatives?</div>
+                  <form id = "form-input" action="/" method="post">
+                    <div class="form-floating mb-3"> <!-- Street 1 -->
+                        <input type="text" class="form-control" id="street1_id" name="street1" placeholder="Street Address">
+                        <label for="street1_id" class="control-label">Street Address</label>
+                    </div>					  
+
+                    <div class="form-floating mb-3"> <!-- City-->
+                        <input type="text" class="form-control" id="city_id" name="city" placeholder="Smallville">
+                        <label for="city_id" class="control-label">City</label>
+                    </div>									 
+                    <div class="form-floating mb-3"> <!-- State Button -->
+                        <select class="form-control" id="state_id" name="state">
+                            <option value="AL">Alabama</option>
+                            <option value="AK">Alaska</option>
+                            <option value="AZ">Arizona</option>
+                            <option value="AR">Arkansas</option>
+                            <option value="CA">California</option>
+                            <option value="CO">Colorado</option>
+                            <option value="CT">Connecticut</option>
+                            <option value="DE">Delaware</option>
+                            <option value="DC">District Of Columbia</option>
+                            <option value="FL">Florida</option>
+                            <option value="GA">Georgia</option>
+                            <option value="HI">Hawaii</option>
+                            <option value="ID">Idaho</option>
+                            <option value="IL">Illinois</option>
+                            <option value="IN">Indiana</option>
+                            <option value="IA">Iowa</option>
+                            <option value="KS">Kansas</option>
+                            <option value="KY">Kentucky</option>
+                            <option value="LA">Louisiana</option>
+                            <option value="ME">Maine</option>
+                            <option value="MD">Maryland</option>
+                            <option value="MA">Massachusetts</option>
+                            <option value="MI">Michigan</option>
+                            <option value="MN">Minnesota</option>
+                            <option value="MS">Mississippi</option>
+                            <option value="MO">Missouri</option>
+                            <option value="MT">Montana</option>
+                            <option value="NE">Nebraska</option>
+                            <option value="NV">Nevada</option>
+                            <option value="NH">New Hampshire</option>
+                            <option value="NJ">New Jersey</option>
+                            <option value="NM">New Mexico</option>
+                            <option value="NY">New York</option>
+                            <option value="NC">North Carolina</option>
+                            <option value="ND">North Dakota</option>
+                            <option value="OH">Ohio</option>
+                            <option value="OK">Oklahoma</option>
+                            <option value="OR">Oregon</option>
+                            <option value="PA">Pennsylvania</option>
+                            <option value="RI">Rhode Island</option>
+                            <option value="SC">South Carolina</option>
+                            <option value="SD">South Dakota</option>
+                            <option value="TN">Tennessee</option>
+                            <option value="TX">Texas</option>
+                            <option value="UT">Utah</option>
+                            <option value="VT">Vermont</option>
+                            <option value="VA">Virginia</option>
+                            <option value="WA">Washington</option>
+                            <option value="WV">West Virginia</option>
+                            <option value="WI">Wisconsin</option>
+                            <option value="WY">Wyoming</option>
+                        </select>					
+                        <label for="state_id" class="control-label">State</label>
+                    </div>
+                    <div class="form-floating mb-3"> <!-- Zip Code-->
+                        <input type="text" class="form-control" id="zip_id" name="zip" placeholder="#####">
+                        <label for="zip_id" class="control-label">Zip Code</label>
+                    </div>		
+                    
+                    <div class="form-group mb-3"> <!-- Submit Button -->
+                        <button type="button" class="btn" onclick="getInput(this.form)" >Search</button>
+                    </div>     
+                </form>	
+                <div id="result">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>
